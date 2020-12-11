@@ -7,9 +7,8 @@ The disease dynamics equations are,
 dSdt=−β⋅S⋅IN----(1)
 dIdt=β⋅S⋅IN−ν⋅I---(2)
 dRdt=ν⋅I-----(3)
+
 where S is the number of susceptible people in the population, 
-i.e. number of people who are healthy but are likely to fall ill, I is the number of people who are infected and infectious.
-Upon interacting with the susceptible population, these people are likely to infect them, 
-R is the number of people who have recovered or removed from considerations.
-This group consists of the number of people who were infected once upon a time, but have recovered and will neither get infected nor infect again,
-N is the total number of people in the population.
+where t is time, S(t) is the number of susceptible people, I(t) is the number of people infected,
+R(t) is the number of people who have recovered and developed immunity to the infection, 
+beta is the infection rate, and v is the recovery rate.
