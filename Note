@@ -1,0 +1,15 @@
+The standard SIR model divides the entire population into three compartments, namely, 
+S: susceptible, I: infected, and R: removed or recovered.
+A set of ordinary differential equations are then used to solve the disease dynamics and propagate the model.
+
+The disease dynamics equations are,
+
+dSdt=−β⋅S⋅IN----(1)
+dIdt=β⋅S⋅IN−ν⋅I---(2)
+dRdt=ν⋅I-----(3)
+where S is the number of susceptible people in the population, 
+i.e. number of people who are healthy but are likely to fall ill, I is the number of people who are infected and infectious.
+Upon interacting with the susceptible population, these people are likely to infect them, 
+R is the number of people who have recovered or removed from considerations.
+This group consists of the number of people who were infected once upon a time, but have recovered and will neither get infected nor infect again,
+N is the total number of people in the population.
