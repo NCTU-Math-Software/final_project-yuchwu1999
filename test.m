@@ -37,17 +37,22 @@ function [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt)
     S(1) = N;
     I = zeros(1,T/dt);
     I(1) = I0;
+    I(2) = 105;
     R = zeros(1,T/dt);
+    R(1) = 0;
+    R(2) = 12;
     
     for tt = 1:T-1
         
-        dS = (-beta(tt)*I(tt)*S(tt)) * dt;
-        dI = (beta(tt)*I(tt)*S(tt) - gamma(tt)*I(tt)) * dt;
+       
+        dI = (beta(tt)*I(tt)*(N-I(tt)-R(tt)) - gamma(tt)*I(tt)) * dt;
         dR = (gamma(tt)*I(tt)) * dt;
        
-        S(tt+1) = S(tt) + dS;
+        
+       
         I(tt+1) = I(tt) + dI;
         R(tt+1) = R(tt) + dR;
+        S(tt+1) = N -I(tt)-R(tt);
         
         beta(tt+1) = beta(tt);
         gamma(tt+1) = gamma(tt);
@@ -56,3 +61,4 @@ function [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt)
        
     end
 end
+
