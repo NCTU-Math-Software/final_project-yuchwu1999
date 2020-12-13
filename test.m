@@ -1,23 +1,40 @@
-gamma=1/7;
-beta=1/3;
-R0=0;
-I0=10;
-S0=8e6;
-dsdt = @(S,I,R) -(beta*I.*S)./(S+I+R);
-didt = @(S,I,R) (beta*I.*S)./(S+I+R)-I*gamma;
-drdt = @(S,I,R) gamma*I;
-dXdt = @(R,S,I) [dsdt(R,S,I); didt(R,S,I); drdt(R,S,I)];
-IC = [8000000; 10; 0];
-[t, x] = ode45(@(t,X) dXdt(X(1),X(2),X(3)), [0 10], IC);
-s_sol = x(:,1);
-i_sol = x(:,2);
-r_sol = x(:,3);
-subplot(3,1,1);
-plot(t, s_sol);
-title('S');
-subplot(3,1,2);
-plot(t, i_sol);
-title('I');
-subplot(3,1,3);
-plot(t, r_sol);
-title('R');
+beta = 5*10^-9; 
+gamma = 0.12; 
+
+N = 6*10^7; % Total population N = S + I + R
+I0 = 10; % initial number of infected
+T = 300; % period of 300 days
+
+dt = 1/4; % time interval of 6 hours (1/4 of a day)
+
+fprintf('Value of parameter R0 is %.2f',N*beta/gamma)
+
+% Calculate the model
+[S,I,R] = sir_model(beta,gamma,N,I0,T,dt);
+% Plots that display the epidemic outbreak
+tt = 0:dt:T-dt;
+% Curve
+plot(tt,S,'b',tt,I,'r',tt,R,'g','LineWidth',2); grid on;
+xlabel('Days'); ylabel('Number of individuals');
+legend('S','I','R');
+
+
+
+
+function [S,I,R] = sir_model(beta,gamma,N,I0,T,dt)
+   
+    S = zeros(1,T/dt);
+    S(1) = N;
+    I = zeros(1,T/dt);
+    I(1) = I0;
+    R = zeros(1,T/dt);
+    for tt = 1:(T/dt)-1
+        
+        dS = (-beta*I(tt)*S(tt)) * dt;
+        dI = (beta*I(tt)*S(tt) - gamma*I(tt)) * dt;
+        dR = (gamma*I(tt)) * dt;
+        S(tt+1) = S(tt) + dS;
+        I(tt+1) = I(tt) + dI;
+        R(tt+1) = R(tt) + dR;
+    end
+end
