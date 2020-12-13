@@ -1,4 +1,4 @@
-
+％with same R0 
 
 N = (2.3).*10^7 ;%total population
 I0 = 100; % initial number of infected
