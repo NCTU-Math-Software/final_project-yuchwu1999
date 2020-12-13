@@ -2,7 +2,7 @@
 
 N = (2.3).*10^7 ;%total population
 I0 = 100; % initial number of infected
-T=2000;%period
+T = 2000; % period 
 beta=zeros(1,T);
 gamma=zeros(1,T);
 
@@ -26,7 +26,7 @@ ylabel('Number of individuals');
 legend('S','I','R');
 
 for jj=1:T
-fprintf('Value of parameter R0 is %.2f',(N.*beta(jj))./gamma(jj))
+fprintf('Value of parameter R0 of day %d is %.2f',jj,(N.*beta(jj))./gamma(jj))
 disp(' ')
 end
 
@@ -49,8 +49,8 @@ function [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt)
         I(tt+1) = I(tt) + dI;
         R(tt+1) = R(tt) + dR;
         
-        beta(tt+1)=beta(tt);
-        gamma(tt+1)=gamma(tt);
+        beta(tt+1) = beta(tt);
+        gamma(tt+1) = gamma(tt);
         
        
        
