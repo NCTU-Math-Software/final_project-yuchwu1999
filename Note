@@ -7,6 +7,8 @@ The disease dynamics equations are,
 dSdt=−(β⋅S⋅I)/N----(1)
 dIdt=[(β⋅S⋅I)/N]−ν⋅I---(2)
 dRdt=ν⋅I-----(3)
+
+(N = S + I + R)
  
 where t is time, S(t) is the number of susceptible people, I(t) is the number of people infected,
 R(t) is the number of people who have recovered and developed immunity to the infection, 
