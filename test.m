@@ -1,6 +1,6 @@
 beta = 5*10^-9; %infection rate
 gamma = 0.12; %recovery rate
-N = 6.*10^7 %total population
+N = 6.*10^7 ;%total population
 I0 = 100; % initial number of infected
 T = 365; % period 
 
@@ -31,13 +31,17 @@ function [S,I,R] = sir_model(beta,gamma,N,I0,T,dt)
     I = zeros(1,T/dt);
     I(1) = I0;
     R = zeros(1,T/dt);
+    
     for tt = 1:(T/dt)-1
         
         dS = (-beta*I(tt)*S(tt)) * dt;
         dI = (beta*I(tt)*S(tt) - gamma*I(tt)) * dt;
         dR = (gamma*I(tt)) * dt;
+       
         S(tt+1) = S(tt) + dS;
         I(tt+1) = I(tt) + dI;
         R(tt+1) = R(tt) + dR;
+       
+       
     end
 end
