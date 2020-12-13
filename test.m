@@ -2,7 +2,7 @@
 
 N = (2.3).*10^7 ;%total population
 I0 = 100; % initial number of infected
-T = 1000; % period 
+T=2000;%period
 beta=zeros(1,T);
 gamma=zeros(1,T);
 
