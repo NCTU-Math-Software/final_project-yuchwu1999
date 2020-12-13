@@ -6,7 +6,7 @@ T = 365; % period of 300 days
 
 dt = 1/8; % time interval of 6 hours (1/4 of a day)
 
-fprintf('Value of parameter R0 is %.2f',N*beta/gamma)
+fprintf('Value of parameter R0 is %.2f',(N*beta)./gamma)
 
 % Calculate the model
 [S,I,R] = sir_model(beta,gamma,N,I0,T,dt);
