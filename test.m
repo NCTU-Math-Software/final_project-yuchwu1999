@@ -9,7 +9,7 @@ gamma=zeros(1,T);
 beta(1)= (1.1)*10^-9; %infection rate
 gamma(1) = 0.0101; %recovery rate
 
-dt = 1; % time interval of 6 hours (1/8 of a day)
+dt = 1; % time interval 
 
 % Calculate the model
 [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt);
@@ -33,12 +33,12 @@ end
 
 function [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt)
    
-    S = zeros(1,T/dt);
+    S = zeros(1,T);
     S(1) = N;
-    I = zeros(1,T/dt);
+    I = zeros(1,T);
     I(1) = I0;
     I(2) = 105;
-    R = zeros(1,T/dt);
+    R = zeros(1,T);
     R(1) = 0;
     R(2) = 12;
     
