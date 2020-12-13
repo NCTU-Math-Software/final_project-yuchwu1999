@@ -2,9 +2,9 @@ beta = 5*10^-9; %infection rate
 gamma = 0.12; %recovery rate
 N = 6.*10^7 %total population
 I0 = 100; % initial number of infected
-T = 365; % period of 300 days
+T = 365; % period 
 
-dt = 1/8; % time interval of 6 hours (1/4 of a day)
+dt = 1/8; % time interval of 6 hours (1/8 of a day)
 
 fprintf('Value of parameter R0 is %.2f',(N*beta)./gamma)
 
