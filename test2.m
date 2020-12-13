@@ -14,13 +14,7 @@ dt = 1; % time interval
 
 tt = 0:dt:T-dt;
 
-% Curve
-plot(tt,S,'b',tt,I,'r',tt,R,'g','LineWidth',2);
-grid on;
-xlabel('Days');
-ylabel('Number of individuals');
 
-legend('S','I','R');
 
 for jj=1:T
 fprintf('Value of parameter R0 of day %d is %.2f',jj,(N.*beta(jj))./gamma(jj))
