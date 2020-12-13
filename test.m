@@ -4,17 +4,19 @@ N = 6.*10^7 %total population
 I0 = 100; % initial number of infected
 T = 365; % period of 300 days
 
-dt = 1/4; % time interval of 6 hours (1/4 of a day)
+dt = 1/8; % time interval of 6 hours (1/4 of a day)
 
 fprintf('Value of parameter R0 is %.2f',N*beta/gamma)
 
 % Calculate the model
 [S,I,R] = sir_model(beta,gamma,N,I0,T,dt);
 % Plots that display the epidemic outbreak
+
 tt = 0:dt:T-dt;
 
 % Curve
-plot(tt,S,'b',tt,I,'r',tt,R,'g','LineWidth',2); grid on;
+plot(tt,S,'b',tt,I,'r',tt,R,'g','LineWidth',2); 
+grid on;
 xlabel('Days');
 ylabel('Number of individuals');
 legend('S','I','R');
