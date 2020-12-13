@@ -17,5 +17,5 @@ reference: https://www.mathworks.com/matlabcentral/fileexchange/75100-sir-epidem
 
 // solving I(t),R(t)
 
-dIdt = [βI(N-I-R)/N]-rI  
-dR/dt= rI
+dIdt = [βI(N-I-R)/N]-vI  
+dR/dt= vI
