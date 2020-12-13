@@ -4,8 +4,8 @@ A set of ordinary differential equations are then used to solve the disease dyna
 
 The disease dynamics equations are,
 
-dSdt=−β⋅S⋅IN----(1)
-dIdt=β⋅S⋅IN−ν⋅I---(2)
+dSdt=−(β⋅S⋅I)/N----(1)
+dIdt=[(β⋅S⋅I)/N]−ν⋅I---(2)
 dRdt=ν⋅I-----(3)
  
 where t is time, S(t) is the number of susceptible people, I(t) is the number of people infected,
