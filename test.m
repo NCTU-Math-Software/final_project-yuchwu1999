@@ -1,5 +1,5 @@
-beta = 5*10^-9; 
-gamma = 0.12; 
+beta = 5*10^-9; %infection rate
+gamma = 0.12; %recovery rate
 N = 6.*10^7 %total population
 I0 = 100; % initial number of infected
 T = 365; % period of 300 days
