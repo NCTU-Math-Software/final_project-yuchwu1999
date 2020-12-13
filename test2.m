@@ -7,8 +7,7 @@ gamma=zeros(1,T);
 beta(1)= (1.1)*10^-9; %infection rate
 gamma(1) = 0.0101; %recovery rate
 
-dt = 1; % time interval of 6 hours (1/8 of a day)
-
+dt = 1; % time interval 
 % Calculate the model
 [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt);
 % Plots that display the epidemic outbreak
