@@ -11,3 +11,8 @@ dRdt=ν⋅I-----(3)
 where t is time, S(t) is the number of susceptible people, I(t) is the number of people infected,
 R(t) is the number of people who have recovered and developed immunity to the infection, 
 beta is the infection rate, and v is the recovery rate.
+
+// solving I(t),R(t)
+
+dIdt = [βI(N-I-R)/N]-rI  
+dR/dt= rI
