@@ -18,7 +18,7 @@ dt = 1; % time interval of 6 hours
 tt = 0:dt:T-dt;
 
 % Curve
-plot(tt,S,'b',tt,I,'r',tt,R,'g','LineWidth',2); 
+plot(tt,S,'b--o',tt,I,'r--o',tt,R,'g--o','LineWidth',2); 
 grid on;
 xlabel('Days');
 ylabel('Number of individuals');
