@@ -47,7 +47,7 @@ function [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt)
     for tt = 1:T-1
 
        gamma(tt+1)=fsolve(@(x) (R(tt+1)-(x*I(tt))-R(tt) * dt),1);
-       beta(tt+1)=fsolve(@(y) (I(tt+1)-(y*I(tt)*(N-I(tt)-R(tt)) - gamma(tt)*I(tt)) * dt-I(tt)),1);
+       beta(tt+1)=fsolve(@(y) (I(tt+1)-(y*I(tt)*(N-I(tt)-R(tt)) - gamma(tt+1)*I(tt)) * dt-I(tt)),1);
 
 
 
