@@ -37,7 +37,7 @@ dR=(gamma(tt+1).*I(tt)).*dt
 fsolve(@(x) R(tt+1)-(x.*I(tt)).*dt-R(tt),1) 得到的 **x**值為 gamma(tt+1)
 fsolve(@(y) I(tt+1)-(y.*I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).*I(tt)).* dt-I(tt),1) 得到的 **y**值為beta(tt+1)
 
-既然有了每天的beta和gamma值，N.*beta./gamma及可求得每日的**R0**值
+既然有了每天的beta和gamma值，即可求得每日的**R0**值
 
 
 
