@@ -39,6 +39,7 @@ when s/he enters a totally susceptible population)
 * fsolve(@(y) I(tt+1)-(y.*I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).*I(tt)).* dt-I(tt),1) 得到的 **y**值為beta(tt+1)
 
 既然有了每天的beta和gamma值，即可求得每日的**R0**值
+---
 
 
 
