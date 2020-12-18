@@ -31,7 +31,7 @@ when s/he enters a totally susceptible population)
 * dR=(gamma(tt+1).*I(tt)).*dt
 
 則R(tt)+dR為明天的累積康復人數，I(tt)+dI為明天的目前感染總人數
-其中beta(tt+1),gamma(tt+1)為未知數
+，其中beta(tt+1),gamma(tt+1)為未知數
 
 藉由**fsolve**
 
