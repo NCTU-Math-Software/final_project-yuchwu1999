@@ -10,7 +10,7 @@ S.I.R. 分別是 **Susceptible (易感染)、Infected (已感染)、Removal (移
 分別記作 S(t), I(t), R(t), 得 S(t) + I(t) + R(t) = N .
 **β**(Beta) 值的意義是一個已感染者每天有效傳播病毒的人數占總人口的比例，而 **γ**(Gamma) 每天移除感染的人數占已感染人數的比例
 
-## **R0=N*Beta./Gamma** :**Basic reproduction number**，為一個病人在疫情期間直接感染他人個數的平均值
+## **R0** :Basic reproduction number，為一個病人在疫情期間直接感染他人個數的平均值
 (the average number of persons directly infected by an infectious case during the entire infectious period 
 when s/he enters a totally susceptible population)
 
