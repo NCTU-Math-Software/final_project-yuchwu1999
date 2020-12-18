@@ -23,11 +23,11 @@ when s/he enters a totally susceptible population)
 我們可以將式子改寫成:
 
 * dIdt = [βI(N-I-R)/N]-vI  
-* dR/dt= vI
+* dRdt= vI
 
 若已知一個國家每日的感染人數(I)及康復人數(R)，設將時間間隔dt設為1天，dI,dR分別是感染人數和康復人數的變化量，tt為目前日期
 
-* dI=(beta(tt+1).*I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).*I(tt)).* dt
+* dI=(beta(tt+1).*I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).*I(tt)).*dt
 * dR=(gamma(tt+1).*I(tt)).*dt
 
 則R(tt)+dR為明天的累積康復人數，I(tt)+dI為明天的目前感染總人數
