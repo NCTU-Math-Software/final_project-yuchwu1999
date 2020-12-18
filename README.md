@@ -14,7 +14,7 @@ S.I.R. 分別是 **Susceptible (易感染)、Infected (已感染)、Removal (移
 為一個病人在疫情期間直接感染他人個數的平均值: **R0=N*Beta./Gamma**
 * (the average number of persons directly infected by an infectious case during the entire infectious period 
 when s/he enters a totally susceptible population)
-
+---
 * dSdt=−(β⋅S⋅I)/N
 * dIdt=[(β⋅S⋅I)/N]−ν⋅I
 * dRdt=ν⋅I
