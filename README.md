@@ -1,6 +1,6 @@
 # Project 12-Covid19
 
-##SIR Model
+#SIR Model
 S.I.R. 分別是 **Susceptible (易感染)、Infected (已感染)、Removal (移除感染)**
 的縮寫， S.I.R. 模型的建構需有幾個基本假設，
 **第一**，不考慮個體的出生、自然死亡與流動的情況，個體總數是固定數**N**
