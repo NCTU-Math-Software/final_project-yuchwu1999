@@ -1,4 +1,4 @@
-N = 23563356 ;%total population
+N= 23563356 ;%total population
 I0 = 0; % initial number of infected
 T = 331; % period
 beta=zeros(1,T);
@@ -47,6 +47,9 @@ if abs(R0(jj))>5
 end
 subplot(2,1,2)
 plot(tt,R0,'b',tt,non,'x')
+grid on;
+xlabel('Days');
+ylabel('R0');
 
     
    
@@ -80,6 +83,6 @@ function [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt)
        
        beta(tt+1)=fsolve(@(y) I(tt+1)-(y.*I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).*I(tt)).* dt-I(tt),1 );
        
-       end
- 
+     end
+
 end
