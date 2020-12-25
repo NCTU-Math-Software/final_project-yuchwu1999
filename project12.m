@@ -1,9 +1,10 @@
-
 N = 23563356 ;%total population
 I0 = 0; % initial number of infected
 T = 331; % period
 beta=zeros(1,T);
 gamma=zeros(1,T);
+R0 = zeros(1,T);
+non = zeros(1,T);
 
 beta(1)= 0; %infection rate
 gamma(1) =0; %recovery rate
@@ -17,6 +18,7 @@ dt = 1; % time interval
 tt = 0:dt:T-dt;
 
 % Curve
+subplot(2,1,1)
 plot(tt,I,'r',tt,R,'g','LineWidth',2);
 
 grid on;
@@ -26,11 +28,34 @@ ylabel('Number of individuals');
 legend('I','R');
 
 for jj=1:T
-fprintf('Value of parameter R0 of day %d is %.2f',jj,N.*beta(jj)./gamma(jj))
-disp(' ')
+
+R0(jj)=N.*beta(jj)./gamma(jj);
+if(gamma(jj)==0)
+    non(jj)=5;
 end
+if jj==1
+    R(jj)=0;
+end
+if abs(R0(jj))>5
+    if R0(jj)>=0
+        R0(jj)=5;
+    end
+    if R0(jj)<=0
+        R0(jj)=-5;
+    end
+    
+end
+subplot(2,1,2)
+plot(tt,R0,'b',tt,non,'x')
 
+    
+   
 
+    
+fprintf('Value of parameter R0 of day %d is %.2f',jj,R0(jj))
+disp(' ')
+
+end
 function [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt)
 
 
@@ -46,23 +71,15 @@ function [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt)
     S(1) = N-I(1);
      for tt = 1:T-1
         
-        min=10;
+      
 
-       ans=fsolve(@(x) R(tt+1)-(x.*I(tt)).*dt-R(tt),[0 0.5 1 1.5 2 2.5 3]);
-      for ii=1:7
-        if ans(ii)>0         
-               gamma(tt+1)=ans(ii);
-        end
-       end
+       gamma(tt+1)=fsolve(@(x) R(tt+1)-(x.*I(tt)).*dt-R(tt),1);
+      
        
-       min=10;
+      
        
-       ans=fsolve(@(y) I(tt+1)-(y.*I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).*I(tt)).* dt-I(tt),[0 0.5 1 1.5 2 2.5 3]);
-       for ii=1:7
-        if ans(ii)>0 
-               beta(tt+1)=ans(ii);
-           end
+       beta(tt+1)=fsolve(@(y) I(tt+1)-(y.*I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).*I(tt)).* dt-I(tt),1 );
+       
        end
  
-     end
 end
