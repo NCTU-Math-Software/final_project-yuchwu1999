@@ -1,10 +1,12 @@
 N= 23563356 ;%total population
 I0 = 0; % initial number of infected
 T = 331; % period
+
 beta=zeros(1,T);
 gamma=zeros(1,T);
+
 R0 = zeros(1,T);
-non = zeros(1,T);
+non = zeros(1,T);   %R0 exists or not
 
 beta(1)= 0; %infection rate
 gamma(1) =0; %recovery rate
