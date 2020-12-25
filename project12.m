@@ -56,7 +56,7 @@ end
 end
 subplot(2,1,2)
 plot(tt,R0,'b',tt,non,'x')
-legend('R0')
+legend('R0','check R0')
 grid on;
 xlabel('Days');
 ylabel('R0 value');
