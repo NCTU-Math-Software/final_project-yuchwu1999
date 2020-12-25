@@ -1,17 +1,15 @@
 N= 23563356 ;%total population
 I0 = 0; % initial number of infected
 T = 331; % period
-
-beta=zeros(1,T);  %infection rate
-gamma=zeros(1,T);  %recovery rate
-
+beta=zeros(1,T);
+gamma=zeros(1,T);
 R0 = zeros(1,T);
-non = zeros(1,T);   %R0 exists or not
+non = zeros(1,T); 
 
-beta(1)= 0; %initial infection rate
-gamma(1) =0; %initial recovery rate
+beta(1)= 0; %infection rate
+gamma(1) =0; %recovery rate
 
-dt = 1; % time interval: 1 day
+dt = 1; % time interval
 
 % Calculate the model
 [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt);
@@ -29,18 +27,30 @@ ylabel('Number of individuals');
 
 legend('I','R');
 
+for ii=1:T
+    
+R0(ii)=N.*beta(ii)./gamma(ii);
+
+end
+
+for jj=1:T    
+fprintf('Value of parameter R0 of day %d is %.2f',jj,R0(jj))
+disp(' ')
+end
 for jj=1:T
 
 R0(jj)=N.*beta(jj)./gamma(jj);
+
+
 if(gamma(jj)==0)
-    non(jj)=-8;
+    non(jj)=-20;
 end
 if jj==1
     R(jj)=0;
 end
-if abs(R0(jj))>8
+if abs(R0(jj))>20
     
-        R0(jj)=8;
+        R0(jj)=20;
 end
     
 end
@@ -50,9 +60,7 @@ legend('R0')
 grid on;
 xlabel('Days');
 ylabel('R0 value');
-    
-fprintf('Value of parameter R0 of day %d is %.2f',jj,R0(jj))
-disp(' ')
+
 
 function [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt)
 
