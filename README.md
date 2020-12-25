@@ -40,7 +40,7 @@ when s/he enters a totally susceptible population)
 則R(tt)+dR為明天的累積康復人數，I(tt)+dI為明天的目前感染總人數
 ，其中beta(tt+1),gamma(tt+1)為未知數
 
-藉由**fsolve**
+##利用fsolve
 
 * fsolve(@(x) R(tt+1)-(x.* I(tt)).* dt-R(tt),1) 得到的 **x**值為 gamma(tt+1)
 * fsolve(@(y) I(tt+1)-(y.* I(tt).* (N-I(tt)-R(tt)) - gamma(tt+1).* I(tt)).* dt-I(tt),1) 得到的 **y**值為beta(tt+1)
