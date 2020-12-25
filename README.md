@@ -48,6 +48,10 @@ when s/he enters a totally susceptible population)
 
 既然有了每天的beta和gamma值，即可求得每日的**R0**值
 
+## 製圖
+利用plot:
+* plot(tt,R0)即可呈現出R0隨時間之變化
+
 
 
 ---
