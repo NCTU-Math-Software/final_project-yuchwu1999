@@ -27,16 +27,16 @@ when s/he enters a totally susceptible population)
 
 若已知一個國家每日的感染人數(I)及康復人數(R)，設將時間間隔dt設為1天，dI,dR分別是感染人數和康復人數的變化量，tt為目前日期
 
-* dI=(beta(tt+1).*I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).*I(tt)).*dt
-* dR=(gamma(tt+1).*I(tt)).*dt
+* dI=(beta(tt+1).* I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).* I(tt)).* dt
+* dR=(gamma(tt+1).* I(tt)).*dt
 
 則R(tt)+dR為明天的累積康復人數，I(tt)+dI為明天的目前感染總人數
 ，其中beta(tt+1),gamma(tt+1)為未知數
 
 藉由**fsolve**
 
-* fsolve(@(x) R(tt+1)-(x.*I(tt)).*dt-R(tt),1) 得到的 **x**值為 gamma(tt+1)
-* fsolve(@(y) I(tt+1)-(y.*I(tt).*(N-I(tt)-R(tt)) - gamma(tt+1).*I(tt)).* dt-I(tt),1) 得到的 **y**值為beta(tt+1)
+* fsolve(@(x) R(tt+1)-(x.* I(tt)).* dt-R(tt),1) 得到的 **x**值為 gamma(tt+1)
+* fsolve(@(y) I(tt+1)-(y.* I(tt).* (N-I(tt)-R(tt)) - gamma(tt+1).* I(tt)).* dt-I(tt),1) 得到的 **y**值為beta(tt+1)
 
 既然有了每天的beta和gamma值，即可求得每日的**R0**值
 
