@@ -2,16 +2,16 @@ N= 23563356 ;%total population
 I0 = 0; % initial number of infected
 T = 331; % period
 
-beta=zeros(1,T);
-gamma=zeros(1,T);
+beta=zeros(1,T);  %infection rate
+gamma=zeros(1,T);  %recovery rate
 
 R0 = zeros(1,T);
 non = zeros(1,T);   %R0 exists or not
 
-beta(1)= 0; %infection rate
-gamma(1) =0; %recovery rate
+beta(1)= 0; %initial infection rate
+gamma(1) =0; %initial recovery rate
 
-dt = 1; % time interval
+dt = 1; % time interval: 1 day
 
 % Calculate the model
 [S,I,R,beta,gamma] = sir_model(beta,gamma,N,I0,T,dt);
