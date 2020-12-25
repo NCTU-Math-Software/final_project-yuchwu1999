@@ -51,6 +51,8 @@ end
 if abs(R0(jj))>20
     
         R0(jj)=20;
+        non(jj)=-20;
+        
 end
     
 end
